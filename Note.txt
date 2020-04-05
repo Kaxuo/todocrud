@@ -1,0 +1,71 @@
+-Todo/models.py
+
+-we create APi and add serializers, views, init, urls
+
+- we create the serializer
+
+- the view
+
+- then the router in url
+
+-----
+
+ to install a package.json : npm init -y
+
+then install other stuff by npm ...
+
+-------------
+
+boilerplate Html 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- semantic-ui CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+  <title>ToDoCRUD</title>
+</head>
+
+<body>
+  <div id='app'></div>
+
+  {% load static %}
+  <script src="{% static 'frontend/main.js' %}"></script>
+</body>
+
+</html>
+
+
+BOILERPLATE APP
+
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <h1>ToDoCRUD</h1>
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(<App />, document.querySelector('#app'));
+
+---------
+
+POST ISSUES !! with axios
+
+axios.defaults.xsrfCookieName = 'csrftoken'
+axios.defaults.xsrfHeaderName = 'X-CSRFToken'
+
+
+-----
+
+turn array into string : join()
+
