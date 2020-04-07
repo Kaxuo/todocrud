@@ -13,7 +13,8 @@ import {
 } from './types';
 
 // load user (and its content) ( we load the loading and then the user, as seen below)
-
+// get state => getstate will be used to get the token 
+// check for token and load user if there is one
 export const loadUser = () => async (dispatch, getState) => {
     dispatch({type: USER_LOADING})
     try {
@@ -29,7 +30,7 @@ export const loadUser = () => async (dispatch, getState) => {
     }
 }
 
-//login user (sending info to get user to log in)
+//login user (sending info to get user to log in), we don't need the token anymore, so we don't need getstate here
 
 export const login = ({ username,password }) => async dispatch => {
     // request Headers
@@ -45,21 +46,26 @@ export const login = ({ username,password }) => async dispatch => {
     try {
     const res = await axios.post('/api/auth/login', body,config)
     dispatch({
+        // if it's good then 
         type:LOGIN_SUCCESS,
         payload: res.data
     })
+    // if not then 
     } catch (err) {
         dispatch({
             type:LOGIN_FAIL
         })
         dispatch(stopSubmit('loginForm', err.response.data))
+                // We use stopSubmit() again here to prevent double registration of users., allows us to "export" errors
     }
 }
 
-// helper function
+
 
 // Create a function named tokenConfig as a helper function that gets and sets tokens. This function is also used for todo’s action creators.
 // We can use stopSubmit() to pass server-side errors to our Redux Form fields. The loginForm is going to be created later. Don’t worry about it for now.
+// getstate IS ALWAYS NEEDED WHEN WE NEED TO CHECK FOR THE TOKEN
+// helper function
 
 export const tokenConfig = getState => {
     // Get token
@@ -114,6 +120,6 @@ export const register = ({ username,email,password }) => async dispatch => {
             type:REGISTER_FAIL
         })
         dispatch(stopSubmit('registerForm',err.response.data))
-        // We use stopSubmit() again here to prevent double registration of users.
+        // We use stopSubmit() again here to prevent double registration of users., allows us to "export" errors
     }
 }

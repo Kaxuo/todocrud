@@ -36,6 +36,7 @@ export default function (state = initialState, action) {
             }
         case REGISTER_SUCCESS:
         case LOGIN_SUCCESS:
+            // if it's successful, we set the token that we get, because we want to store it, which will be in the action.payload.token
             localStorage.setItem('token', action.payload.token)
             return {
                 ...state,
@@ -43,6 +44,7 @@ export default function (state = initialState, action) {
                 isAuthenticated: true,
                 ...action.payload
             }
+            // if it fails, it will reset everything
         case REGISTER_FAIL:
         case LOGOUT_SUCCESS:
         case AUTH_ERROR:

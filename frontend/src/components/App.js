@@ -14,7 +14,7 @@ import RegisterForm from './auth/RegisterForm'; // added
 import { loadUser } from '../actions/auth'; // added
 
 class App extends Component {
-  // added
+  // will constantly check if user is auth ?
   componentDidMount() {
     store.dispatch(loadUser());
   }

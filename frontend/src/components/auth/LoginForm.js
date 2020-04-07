@@ -79,5 +79,5 @@ export default reduxForm({
   form: 'loginForm'
 })(LoginForm)
 
-// If the username and password do not match the information in the database, Django returns Non-field errors. To render this error, we need to have a field named 'non_field_errors'.
+// If the username and password do not match the information in the database, Django returns Non-field errors. To render this error, we need to have a field named 'non_field_errors'.in redux, we have the same key
 // 'loginForm' is the name of this form. You can name each form as you like., SAME AS IN THE ACTIONS/AUTH LOGIN

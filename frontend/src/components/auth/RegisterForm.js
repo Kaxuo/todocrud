@@ -65,7 +65,7 @@ render() {
             <button className='ui primary button'>Register</button>
           </form>
           <p style={{ marginTop: '1rem' }}>
-            Already have an account? <Link to='/login'>Login</Link>
+            Already have an account???? <Link to='/login'>Login</Link>
           </p>
         </div>
       </div>
